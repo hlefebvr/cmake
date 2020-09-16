@@ -1,0 +1,8 @@
+function(target_link_mosek TARGET_NAME)
+    if (NOT MOSEK_FOUND)
+        list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/mosek")
+        find_package(MOSEK REQUIRED)
+        include_directories(${MOSEK_INCLUDE_DIR})
+    endif()
+    target_link_libraries(${TARGET_NAME} ${MOSEK_LIBRARY})
+endfunction()
