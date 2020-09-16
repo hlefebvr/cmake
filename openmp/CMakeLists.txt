@@ -1,0 +1,6 @@
+function(target_link_openmp TARGET_NAME)
+    if (NOT OpenMP_CXX_FOUND)
+        find_package(OpenMP REQUIRED)
+    endif()
+    target_link_libraries(${TARGET_NAME} OpenMP::OpenMP_CXX)
+endfunction()
